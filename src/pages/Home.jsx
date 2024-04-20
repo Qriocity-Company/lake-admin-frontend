@@ -130,7 +130,7 @@ const Home = () => {
 
   const fetchDefaultPrice = async () => {
     try {
-      const response = await fetch(`${host}/hotel/get-default-price/${hotelId}`);
+      const response = await fetch(`${host}/hotel/get-default-price/66221c2cce3f47d7d06cd26a`);
       const data = await response.json();
       setDefaultPrice(data.defaultPrice);
     } catch (error) {
