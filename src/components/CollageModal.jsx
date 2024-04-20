@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const CollageModal = ({ setCollageModal }) => {
-  const host = 'http://localhost:3001';
+  const host = 'https://lake-paradise-admin.onrender.com';
   const userId = JSON.parse(localStorage.getItem('user'))?._id;
 
   const [files, setFiles] = useState([]);

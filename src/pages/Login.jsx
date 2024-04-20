@@ -6,7 +6,7 @@ import '../styles/login.css'
 const Login = () => {
    
     // const {host} = useContext(HostContext);
-    const host="http://localhost:3001"
+    const host="https://lake-paradise-admin.onrender.com"
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 

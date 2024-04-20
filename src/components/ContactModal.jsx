@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const ContactModal = ({ setContactModal }) => {
-  const host = 'http://localhost:3001';
+  const host = 'https://lake-paradise-admin.onrender.com';
   const userId = JSON.parse(localStorage.getItem('user'))?._id;
 
   const [phone1, setPhone1] = useState('');

@@ -14,7 +14,7 @@ const hotelId = import.meta.env.VITE_HOTEL_ID;
 const Home = () => {
   
   
-  const { data, loading, error } = useFetch(`http://localhost:3001/hotel/get-hotel`);
+  const { data, loading, error } = useFetch(`https://lake-paradise-admin.onrender.com/hotel/get-hotel`);
   console.log(data.hotel);
   
   // Initial date state (current month and year)
@@ -116,7 +116,7 @@ const Home = () => {
   };
 
   const userId = JSON.parse(localStorage.getItem('user'))?.id;
-  const host = 'http://localhost:3001';
+  const host = 'https://lake-paradise-admin.onrender.com';
 
   const fetchDates = async () => {
     try {

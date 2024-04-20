@@ -5,7 +5,7 @@ const UpdatePriceModal = ({dates,setOpenModal}) => {
 
   const userId = JSON.parse(localStorage.getItem('user'))?._id
   const [price,setPrice] = useState('');
-  const host = 'http://localhost:3001'
+  const host = 'https://lake-paradise-admin.onrender.com'
 
   useEffect(()=>{
     console.log(dates);
