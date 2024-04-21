@@ -209,12 +209,16 @@ const Home = () => {
   <div className='w-1/2 h-1/2 bg-blue-500 flex flex-col justify-center items-center shadow-2xl shadow-black rounded-lg'>
     <p className="text-white text-xl font-bold mb-4">Contact Details</p>
     <div className="flex flex-col gap-4">
-      {data.hotel?.contacts.map((phoneNumber, index) => (
-        <div key={index} className="flex  gap-2 justify-between items-center">
-          <p className="text-white font-semibold">Phone {index + 1}:</p>
-          <p className="text-white">{phoneNumber}</p>
+      
+        <div  className="flex  gap-2 justify-between items-center">
+          <p className="text-white font-semibold">Conatct No.: {data.hotel?.contacts[0]} </p>
+          
         </div>
-      ))}
+        <div  className="flex  gap-2 justify-between items-center">
+          <p className="text-white font-semibold">Email: {data.hotel?.contacts[1]}</p>
+        
+        </div>
+      
     </div>
     <button onClick={() => setContactModal(true) } className="bg-blue-600 border border-solid border-white hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 shadow-md shadow-white">
       Update

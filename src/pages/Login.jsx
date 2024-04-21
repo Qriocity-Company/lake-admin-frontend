@@ -18,7 +18,7 @@ const Login = () => {
 
         e.preventDefault();
 
-        const response = await fetch(`${host}/auth/login`,{
+        const response = await fetch(`https://lake-paradise-admin.onrender.com/auth/login`,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

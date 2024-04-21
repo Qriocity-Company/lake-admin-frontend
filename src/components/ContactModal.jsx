@@ -47,7 +47,7 @@ const ContactModal = ({ setContactModal }) => {
         <div className="mb-4">
           <input
             type="text"
-            placeholder="Enter Phone Number 1"
+            placeholder="Enter Your Phone Number"
             value={phone1}
             onChange={(e) => setPhone1(e.target.value)}
             className="px-4 py-2 w-full border border-gray-300 rounded-lg"
@@ -56,7 +56,7 @@ const ContactModal = ({ setContactModal }) => {
         <div className="mb-4">
           <input
             type="text"
-            placeholder="Enter Phone Number 2"
+            placeholder="Enter Your Email"
             value={phone2}
             onChange={(e) => setPhone2(e.target.value)}
             className="px-4 py-2 w-full border border-gray-300 rounded-lg"
