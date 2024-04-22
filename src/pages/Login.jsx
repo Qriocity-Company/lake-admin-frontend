@@ -50,7 +50,7 @@ const Login = () => {
 
   return (
     <div className='bg-blue-600 h-[100vh] w-[100vw] flex items-center justify-center'>
-        <div className="container w-[25vw]">
+        <div className="container w-[90vw] md:w-[25vw]">
         <div className="heading">Sign In</div>
         <h2 className='text-zinc-400 text-center text-lg'>Sign in to manage your website.</h2>
         <form onSubmit={handleSubmit} className="form">

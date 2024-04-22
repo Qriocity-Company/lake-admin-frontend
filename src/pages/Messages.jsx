@@ -22,14 +22,16 @@ const Messages = () => {
   }, []);
 
   const deleteMessage=async(id)=>{
-    const res = await fetch(`${host}/messages/delete-mmessage/${id}`,{
+    const res = await fetch(`${host}/messages/delete-message/${id}`,{
       method:"DELETE",
     });
     const data = await res.json();
+
     console.log(data);
     if(res.ok){
       alert('Message Deleted Successfully');
     }
+    window.location.reload();
   }
 
   return (
@@ -38,11 +40,11 @@ const Messages = () => {
         <h2 className='mt-8 mb-6 font-bold text-2xl'>Check Out User Messages</h2>
 
         <div className='max-h-[80vh] overflow-y-auto pr-6'>
-          {messages.map((message, index) => (
+          {messages?.map((message, index) => (
             <div key={index} className='bg-blue-100 p-4 my-4 rounded-md shadow flex flex-col gap-2'>
               <div className='flex items-center justify-between mb-2'>
                 <h3 className='text-xl font-semibold'>Message {index + 1}</h3>
-                <Trash className='text-red-500 text-lg' />
+                <Trash className=' cursor-pointer text-red-500 text-lg' onClick={()=>deleteMessage(message._id)} />
               </div>
               <div className='flex flex-col gap-1 '>
                 <h3 className='text-lg font-bold'>Checkin - Checkout</h3>

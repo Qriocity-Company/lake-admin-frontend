@@ -23,7 +23,7 @@ const Navbar = () => {
   }, [navigate]);
 
   return (
-    <div className="w-full bg-blue-600">
+    <div className="w-full bg-blue-600 py-4">
   <div className="flex items-center justify-between px-6 md:px-12 py-2">
     <div className="font-bold text-xl text-white">Admin Panel</div>
     <button

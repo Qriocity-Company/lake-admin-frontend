@@ -28,7 +28,7 @@ function App() {
                 <Navbar/>
                 <Routes>
                   <Route path='/home' element={ <Home/> } />
-                  <Route path='/messages' element={<Messages/>} />
+                  <Route path='/message' element={<Messages/>} />
                 </Routes>
               </>
             }

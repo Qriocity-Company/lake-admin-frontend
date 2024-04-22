@@ -64,15 +64,15 @@ const CollageModal = ({ setCollageModal }) => {
 
   return (
     <div class='fixed top-0 left-0 h-screen w-screen z-50 bg-[rgba(0,0,0,0.7)] flex items-center justify-center'>
-    <div class='w-[43vw]  max-h-[90vh] relative flex flex-col py-8   sm:px-12 md:px-12 lg:px-48 pt-96 justify-center items-center overflow-y-scroll rounded-xl bg-white shadow-lg'>
+      <div class=' md:w-[43vw] w-[90vw] max-h-[90vh] relative flex flex-col  justify-center items-center  rounded-xl bg-white shadow-lg'>
       <X class='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={() => setCollageModal(false)} />
-      <h3 class='text-xl font-bold mt-4 mb-4'>Update Your Gallery : </h3>
-  
+      <h3 class='text-xl font-bold my-4 '>Update Your Gallery : </h3>
+      <div className='max-h-[70vh] w-[90%] overflow-y-scroll pr-4 my-4'>
       {files.map((file, index) => (
         <div key={index} class="flex flex-col items-center justify-center ">
           <img
             src={URL.createObjectURL(file)}
-            class="mt-4 mb-2 rounded-lg w-full max-h-40 sm:max-h-60"
+            class="mt-4 mb-2 rounded-lg w-full "
             alt="Uploaded Image"
           />
           <input
@@ -84,6 +84,7 @@ const CollageModal = ({ setCollageModal }) => {
           />
         </div>
       ))}
+      </div>
       <div>
         <input type="file" multiple onChange={handleImage} class="mt-2 mb-2 px-4 py-2 w-full border border-gray-300 rounded-lg" />
       </div>

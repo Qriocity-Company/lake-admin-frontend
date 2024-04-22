@@ -180,34 +180,34 @@ const Home = () => {
       {bookingModal && <DateBookingModal setOpenModal={setBookingModal} dates={selectedDates}/>}
 
       <div className=' relative md:w-[70vw] w-[90vw] h-[50vh] mb-12 flex justify-center items-center '>
-        <h1 className=' bg-black bg-opacity-20 text-white absolute font-bold font-serif z-4 top-0 left-0 right-0 text-center text-lg'>Hero Image</h1>
+        <h1 className=' bg-black bg-opacity-20 text-white absolute font-bold text-lg z-4 top-0 left-0 right-0 text-center text-lg'>Hero Image</h1>
         <img src={data.hotel?.heroImage} alt="" className=' w-full h-full rounded-lg' />
-        <button  onClick={() => setHeroModal(true) } className="absolute z-4 bg-blue-700 p-3 px-8 font-serif bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
+        <button  onClick={() => setHeroModal(true) } className="absolute z-4 bg-blue-700 p-3 px-8 text-lg bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
         
       </div>
       <div className=' relative md:w-[70vw] w-[90vw] h-[50vh] mb-12 flex justify-center items-center '>
-      <h1 className=' bg-black bg-opacity-20 text-white absolute font-serif font-bold z-4 top-0 left-0 right-0 text-center text-lg'>About Image</h1>
+      <h1 className=' bg-black bg-opacity-20 text-white absolute text-lg font-bold z-4 top-0 left-0 right-0 text-center text-lg'>About Image</h1>
         <img src={data.hotel?.aboutImage} alt="" className=' w-full h-full rounded-lg' />
-        <button onClick={() => setAboutModal(true) } className="absolute z-4 bg-blue-700 p-3 px-8 font-serif bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
+        <button onClick={() => setAboutModal(true) } className="absolute z-4 bg-blue-700 p-3 px-8 text-lg bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
         
       </div>
       <div className=' relative md:w-[70vw] w-[90vw] h-[70vh] mb-12 flex flex-wrap justify-center items-center'>
       {data.hotel?.hotelImages.map((image, index) => (
           <div key={index} className=' relative w-1/2 h-1/2 p-1'>
             <img src={image.img} alt={`Hotel Image ${index + 1}`} className=' w-full h-full' />
-            <div className=' text-white absolute font-serif font-bold z-4 top-1 px-1 left-0 right-0 text-center text-lg'>
+            <div className=' text-white absolute text-lg font-bold z-4 top-1 px-1 left-0 right-0 text-center text-lg'>
             <h1 className='bg-black bg-opacity-20'>{image.title}</h1>
             </div>
           </div>
         ))}
-         <button onClick={() => setCollageModal(true)}className="absolute z-4 bg-blue-600  py-5 px-10 font-serif  hover:bg-blue-700  text-white rounded-full right-30">update</button>
+         <button onClick={() => setCollageModal(true)}className="absolute z-4 bg-blue-600  py-5 px-10 text-lg  hover:bg-blue-700  text-white rounded-full right-30">update</button>
        
       </div>
 
       <div className=' relative md:w-[70vw] w-[90vw] h-[50vh] mb-12 flex justify-center items-center '>
-      <h1 className=' bg-black bg-opacity-20 text-white absolute font-serif font-bold z-4 top-0 left-0 right-0 text-center text-lg'>Bottom Banner Image</h1>
+      <h1 className=' bg-black bg-opacity-20 text-white absolute text-lg font-bold z-4 top-0 left-0 right-0 text-center text-lg'>Bottom Banner Image</h1>
         <img src={data.hotel?.bottomBanner} alt="" className=' w-full h-full rounded-lg' />
-        <button  onClick={() => setBannerModal(true) } className="absolute z-4 bg-blue-700 p-3 px-8 font-serif bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
+        <button  onClick={() => setBannerModal(true) } className="absolute z-4 bg-blue-700 p-3 px-8 text-lg bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
         
       </div>
       <div class="relative w-full md:w-[70vw]  h-[50vh] mb-12 flex justify-center items-center">
