@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home'
 import Customers from './pages/Customers'
 import AddCustomers from './pages/AddCustomers';
+import Messages from './pages/Messages';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                   <Route path='/home' element={ <Home/> } />
                   <Route path='/customers' element={ <Customers/> } />
                   <Route path='/add-customers' element={ <AddCustomers/> } />
+                  <Route path='/message' element={ <Messages/> } />
                 </Routes>
               </>
             }

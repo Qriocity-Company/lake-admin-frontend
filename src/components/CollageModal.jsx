@@ -63,33 +63,34 @@ const CollageModal = ({ setCollageModal }) => {
   };
 
   return (
-    <div className='fixed top-0 left-0 h-[100vh] w-[100vw] z-50 bg-[rgba(0,0,0,0.7)] flex items-center justify-center'>
-      <div className='w-[43vw] max-h-[90vh] relative flex flex-col py-12 px-28 justify-center items-center overflow-y-scroll rounded-xl bg-white shadow-lg'>
-        <X className='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={() => setCollageModal(false)} />
-        <h3 className='text-xl font-bold mt-4 mb-4'>Update Your Gallery : </h3>
-
-        {files.map((file, index) => (
-          <div key={index} className="flex items-center justify-center ">
-            <img
-              src={URL.createObjectURL(file)}
-              className="mt-4 mb-2 rounded-lg"
-              style={{ width: '50%', height: '30%' }}
-            />
-            <input
-              type="text"
-              placeholder="Enter Title"
-              value={titles[index] || ""}
-              onChange={(e) => handleTitleChange(index, e.target.value)}
-              className="mt-2 ml-2 mb-1 px-4 py-2 w-full border border-gray-300 rounded-lg"
-            />
-          </div>
-        ))}
-         <div>
-        <input type="file" multiple onChange={handleImage} className="mt-2 mb-2 px-4 py-2 w-full border border-gray-300 rounded-lg" />
-         </div>
-        <button className='px-6 py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white mb-2 text-xl' onClick={handleSubmit}>Update</button>
+    <div class='fixed top-0 left-0 h-screen w-screen z-50 bg-[rgba(0,0,0,0.7)] flex items-center justify-center'>
+    <div class='w-[43vw]  max-h-[90vh] relative flex flex-col py-8   sm:px-12 md:px-12 lg:px-48 pt-96 justify-center items-center overflow-y-scroll rounded-xl bg-white shadow-lg'>
+      <X class='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={() => setCollageModal(false)} />
+      <h3 class='text-xl font-bold mt-4 mb-4'>Update Your Gallery : </h3>
+  
+      {files.map((file, index) => (
+        <div key={index} class="flex flex-col items-center justify-center ">
+          <img
+            src={URL.createObjectURL(file)}
+            class="mt-4 mb-2 rounded-lg w-full max-h-40 sm:max-h-60"
+            alt="Uploaded Image"
+          />
+          <input
+            type="text"
+            placeholder="Enter Title"
+            value={titles[index] || ""}
+            onChange={(e) => handleTitleChange(index, e.target.value)}
+            class="mt-2 mb-1 px-4 py-2 w-full border border-gray-300 rounded-lg"
+          />
+        </div>
+      ))}
+      <div>
+        <input type="file" multiple onChange={handleImage} class="mt-2 mb-2 px-4 py-2 w-full border border-gray-300 rounded-lg" />
       </div>
+      <button class='px-6 py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white mb-2 text-xl' onClick={handleSubmit}>Update</button>
     </div>
+  </div>
+  
   );
 };
 

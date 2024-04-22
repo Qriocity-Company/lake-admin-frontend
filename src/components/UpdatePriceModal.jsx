@@ -44,23 +44,24 @@ const UpdatePriceModal = ({dates,setOpenModal}) => {
   };
 
   return (
-    <div className='fixed top-0 left-0 h-[100vh] w-[100vw] z-50 bg-[rgba(0,0,0,0.7)] flex items-center justify-center'>
-        <div className='w-[43vw] relative flex flex-col p-6 rounded-xl bg-white shadow-lg'>
-            <X className='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={()=>setOpenModal(false)}/>
-            <h3 className='text-xl font-bold mb-4'>Update Price for these dates : </h3>
-            <div className='my-2 flex gap-2 flex-wrap max-h-[60vh] oveflow-y-scroll pr-4'>
+    <div class='fixed top-0 left-0 h-screen w-screen z-50 bg-[rgba(0,0,0,0.7)] flex items-center justify-center'>
+    <div class='w-[90%] max-w-md relative flex flex-col p-4 md:p-6 rounded-xl bg-white shadow-lg'>
+        <X class='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={()=>setOpenModal(false)}/>
+        <h3 class='text-lg md:text-xl font-bold mb-2 md:mb-4'>Update Price for these dates:</h3>
+        <div class='my-2 flex flex-wrap max-h-[50vh] overflow-y-scroll pr-2 md:pr-4'>
             {
                 dates?.map((date,index)=>(
-                    <div key={index} className='shadow-lg bg-blue-400 text-white px-5 py-3 text-lg'>
+                    <div key={index} class='shadow-lg bg-blue-400 text-white px-3 py-2 text-sm md:text-lg'>
                         {formatDate(date)}
                     </div>
                 ))
             }
-            </div>
-            <input onChange={(e)=>setPrice(e.target.value)} type="text"  className='border-2 border-zinc-400 px-4 py-2 outline-none focus:outline-blue-400 my-3 font-semibold' placeholder='Enter Price'/>
-            <button className='px-6 py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white text-xl' onClick={handleUpdate}>Update</button>
         </div>
+        <input onChange={(e)=>setPrice(e.target.value)} type="text" class='border-2 border-zinc-400 px-4 py-2 outline-none focus:outline-blue-400 my-3 text-sm md:text-base font-semibold' placeholder='Enter Price'/>
+        <button class='px-4 py-2 md:px-6 bg-blue-500 rounded-xl hover:bg-blue-600 text-white text-sm md:text-lg' onClick={handleUpdate}>Update</button>
     </div>
+</div>
+
   )
 }
 

@@ -88,13 +88,14 @@ const Home = () => {
 
       days.push(
         <div
-          onClick={() => manageDate(currentDate)}
-          className={`bg-blue-200 cursor-pointer flex flex-col items-center gap-4 py-4 calendar-day ${isSelected ? 'bg-teal-400' : ''} ${isBooked ? 'bg-zinc-500' : ''}`}
-          key={`day-${i}`}
-        >
-          <p className={isBooked ? 'line-through' : ''}>{i}</p>
-          <p className='bg-blue-500 rounded-xl px-3 py-1 w-fit h-fit shadow-md text-white text-sm  shadow-black'>${price}</p>
-        </div>
+            onClick={() => manageDate(currentDate)}
+            className={`bg-blue-200 cursor-pointer flex flex-col items-center gap-2 md:gap-4 py-4 px-2 md:px-4 calendar-day ${isSelected ? 'bg-teal-400' : ''} ${isBooked ? 'bg-zinc-500' : ''}`}
+            key={`day-${i}`}
+          >
+            <p className={`text-center ${isBooked ? 'line-through' : ''}`}>{i}</p>
+            <p className='bg-blue-500 rounded-lg px-2 py-1 md:px-3 md:py-1 text-white text-xs md:text-sm'>{price}</p>
+          </div>
+
       );
     }
 
@@ -145,48 +146,49 @@ const Home = () => {
 
   return (
     <div className='min-h-[90vh] bg-white  relative w-full flex flex-col items-center justify-center'>
-      <div className='w-[70vw] h-[90vh] mb-12 flex flex-col items-center p-12'>
-        <h2 className='text-xl font-semibold'>Manage your Calendar</h2>
-        <div className='w-full'>
-          <div className="flex items-center justify-between">
-            <button onClick={() => changeMonth(-1)}>&#9664;</button>
-            <span>{getMonthYear()}</span>
-            <button onClick={() => changeMonth(1)}>&#9654;</button>
-          </div>
-          <div className="mt-4">
-            <div className="grid grid-cols-7 gap-2 text-center">
-              <div className="font-semibold">Sun</div>
-              <div className="font-semibold">Mon</div>
-              <div className="font-semibold">Tue</div>
-              <div className="font-semibold">Wed</div>
-              <div className="font-semibold">Thu</div>
-              <div className="font-semibold">Fri</div>
-              <div className="font-semibold">Sat</div>
-              {renderCalendarDays()}
-            </div>
-          </div>
-          <div className="flex justify-end mb-6 gap-6">
-            <button onClick={() => setOpenModal(true)} className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md hover:bg-blue-600 shadow-lg shadow-black">Update Prices</button>
-            <button onClick={() => setBookingModal(true)} className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md hover:bg-blue-600 shadow-lg shadow-black">Book Dates</button>
-          </div>
-        </div>
+     <div className='w-full h-auto mb-12 p-4 md:p-12'>
+  <h2 className='text-xl md:text-2xl font-semibold text-center'>Manage your Calendar</h2>
+  <div className='w-full'>
+    <div className="flex items-center justify-between">
+      <button onClick={() => changeMonth(-1)} className="block md:hidden">&#9664;</button>
+      <span className="text-center">{getMonthYear()}</span>
+      <button onClick={() => changeMonth(1)} className="block md:hidden">&#9654;</button>
+    </div>
+    <div className="mt-4">
+      <div className="grid grid-cols-7 gap-2 text-center">
+        <div className="font-semibold">Sun</div>
+        <div className="font-semibold">Mon</div>
+        <div className="font-semibold">Tue</div>
+        <div className="font-semibold">Wed</div>
+        <div className="font-semibold">Thu</div>
+        <div className="font-semibold">Fri</div>
+        <div className="font-semibold">Sat</div>
+        {renderCalendarDays()}
       </div>
+    </div>
+    <div className="flex flex-col md:flex-row justify-center md:justify-end items-center md:mb-6 gap-4 mt-4 md:mt-6">
+      <button onClick={() => setOpenModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Update Prices</button>
+      <button onClick={() => setBookingModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Book Dates</button>
+    </div>
+  </div>
+</div>
+
       {openModal && <UpdatePriceModal setOpenModal={setOpenModal} dates={selectedDates}/>}
       {bookingModal && <DateBookingModal setOpenModal={setBookingModal} dates={selectedDates}/>}
 
-      <div className=' relative w-[70vw] h-[50vh] mb-12 flex justify-center items-center '>
+      <div className=' relative md:w-[70vw] w-[90vw] h-[50vh] mb-12 flex justify-center items-center '>
         <h1 className=' bg-black bg-opacity-20 text-white absolute font-bold font-serif z-50 top-0 left-0 right-0 text-center text-lg'>Hero Image</h1>
         <img src={data.hotel?.heroImage} alt="" className=' w-full h-full rounded-lg' />
         <button  onClick={() => setHeroModal(true) } className="absolute z-50 bg-blue-700 p-3 px-8 font-serif bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
         
       </div>
-      <div className=' relative w-[70vw] h-[50vh] mb-12 flex justify-center items-center '>
+      <div className=' relative md:w-[70vw] w-[90vw] h-[50vh] mb-12 flex justify-center items-center '>
       <h1 className=' bg-black bg-opacity-20 text-white absolute font-serif font-bold z-50 top-0 left-0 right-0 text-center text-lg'>About Image</h1>
         <img src={data.hotel?.aboutImage} alt="" className=' w-full h-full rounded-lg' />
         <button onClick={() => setAboutModal(true) } className="absolute z-50 bg-blue-700 p-3 px-8 font-serif bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
         
       </div>
-      <div className=' relative w-[70vw] h-[70vh] mb-12 flex flex-wrap justify-center items-center'>
+      <div className=' relative md:w-[70vw] w-[90vw] h-[70vh] mb-12 flex flex-wrap justify-center items-center'>
       {data.hotel?.hotelImages.map((image, index) => (
           <div key={index} className=' relative w-1/2 h-1/2 p-1'>
             <img src={image.img} alt={`Hotel Image ${index + 1}`} className=' w-full h-full' />
@@ -199,28 +201,24 @@ const Home = () => {
        
       </div>
 
-      <div className=' relative w-[70vw] h-[50vh] mb-12 flex justify-center items-center '>
+      <div className=' relative md:w-[70vw] w-[90vw] h-[50vh] mb-12 flex justify-center items-center '>
       <h1 className=' bg-black bg-opacity-20 text-white absolute font-serif font-bold z-50 top-0 left-0 right-0 text-center text-lg'>Bottom Banner Image</h1>
         <img src={data.hotel?.bottomBanner} alt="" className=' w-full h-full rounded-lg' />
         <button  onClick={() => setBannerModal(true) } className="absolute z-50 bg-blue-700 p-3 px-8 font-serif bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
         
       </div>
-      <div className='relative w-[70vw] h-[50vh] mb-12 flex justify-center items-center'>
-  <div className='w-1/2 h-1/2 bg-blue-500 flex flex-col justify-center items-center shadow-2xl shadow-black rounded-lg'>
-    <p className="text-white text-xl font-bold mb-4">Contact Details</p>
-    <div className="flex flex-col gap-4">
-      
-        <div  className="flex  gap-2 justify-between items-center">
-          <p className="text-white font-semibold">Conatct No.: {data.hotel?.contacts[0]} </p>
-          
-        </div>
-        <div  className="flex  gap-2 justify-between items-center">
-          <p className="text-white font-semibold">Email: {data.hotel?.contacts[1]}</p>
-        
-        </div>
-      
+      <div class="relative w-full md:w-[70vw]  h-[50vh] mb-12 flex justify-center items-center">
+  <div class="w-full md:w-1/2 h-full bg-blue-500 flex flex-col justify-center items-center shadow-2xl shadow-black rounded-lg">
+    <p class="text-white text-xl font-bold mb-4">Contact Details</p>
+    <div class="flex flex-col gap-4">
+      <div class="flex gap-2 justify-between items-center">
+        <p class="text-white font-semibold">Contact No.: {data.hotel?.contacts[0]} </p>
+      </div>
+      <div class="flex gap-2 justify-between items-center">
+        <p class="text-white font-semibold">Email: {data.hotel?.contacts[1]}</p>
+      </div>
     </div>
-    <button onClick={() => setContactModal(true) } className="bg-blue-600 border border-solid border-white hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 shadow-md shadow-white">
+    <button onClick={() => setContactModal(true)} class="bg-blue-600 border border-solid border-white hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 shadow-md shadow-white">
       Update
     </button>
   </div>

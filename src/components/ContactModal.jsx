@@ -39,33 +39,34 @@ const ContactModal = ({ setContactModal }) => {
   };
 
   return (
-    <div className='fixed top-0 left-0 h-[100vh] w-[100vw] z-50 bg-[rgba(0,0,0,0.7)] flex items-center justify-center'>
-      <div className='w-[43vw] relative flex flex-col p-6 justify-center items-center rounded-xl bg-white shadow-lg'>
-        <X className='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={() => setContactModal(false)} />
-        <h3 className='text-xl font-bold mb-4'>Update Contact Details:</h3>
-        
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Enter Your Phone Number"
-            value={phone1}
-            onChange={(e) => setPhone1(e.target.value)}
-            className="px-4 py-2 w-full border border-gray-300 rounded-lg"
-          />
-        </div>
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Enter Your Email"
-            value={phone2}
-            onChange={(e) => setPhone2(e.target.value)}
-            className="px-4 py-2 w-full border border-gray-300 rounded-lg"
-          />
-        </div>
-        
-        <button className='px-6 py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white mb-2 text-xl' onClick={handleSubmit}>Update</button>
-      </div>
+    <div className='fixed top-0 left-0 h-screen w-screen z-50 bg-black bg-opacity-70 flex items-center justify-center'>
+  <div className='w-11/12 md:w-[43vw] relative flex flex-col p-6 md:p-10 justify-center items-center rounded-xl bg-white shadow-lg'>
+    <X className='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={() => setContactModal(false)} />
+    <h3 className='text-lg md:text-xl font-bold mb-4'>Update Contact Details:</h3>
+    
+    <div className="mb-4">
+      <input
+        type="text"
+        placeholder="Enter Your Phone Number"
+        value={phone1}
+        onChange={(e) => setPhone1(e.target.value)}
+        className="px-4 py-2 w-full border border-gray-300 rounded-lg"
+      />
     </div>
+    <div className="mb-4">
+      <input
+        type="text"
+        placeholder="Enter Your Email"
+        value={phone2}
+        onChange={(e) => setPhone2(e.target.value)}
+        className="px-4 py-2 w-full border border-gray-300 rounded-lg"
+      />
+    </div>
+    
+    <button className='px-6 py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white mb-2 text-lg md:text-xl' onClick={handleSubmit}>Update</button>
+  </div>
+</div>
+
   );
 };
 

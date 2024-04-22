@@ -59,22 +59,29 @@ const AboutModal = ({setAboutModal}) => {
 
 
   return (
-    <div className='fixed top-0 left-0 h-[100vh] w-[100vw] z-50 bg-[rgba(0,0,0,0.7)] flex items-center justify-center'>
-        <div className='w-[43vw] relative flex flex-col p-6 justify-center items-center rounded-xl bg-white shadow-lg'>
-            <X className='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={()=>setAboutModal(false)}/>
-            <h3 className='text-xl font-bold mb-4'>Update About Image : </h3>
-           
-            <img src={
-                   file
-                   ? URL.createObjectURL(file)
-                   : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"}
-                   className="mt-4 mb-2 rounded-lg" style={{ width: '50%', height: '30%' }}/> 
+    <div className='fixed top-0 left-0 h-screen w-screen z-50 bg-black bg-opacity-70 flex items-center justify-center'>
+  <div className='w-11/12 md:w-[43vw] relative flex flex-col p-6 md:p-10 justify-center items-center rounded-xl bg-white shadow-lg'>
+    <X className='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={()=>setAboutModal(false)}/>
+    <h3 className='text-lg md:text-xl font-bold mb-4'>Update About Image:</h3>
+    <img 
+      src={file ? URL.createObjectURL(file) : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"}
+      className="mt-4 mb-2 rounded-lg w-full md:w-[50%] h-auto" 
+      alt="Preview"
+    />
+    <input 
+      type="file"  
+      onChange={handleImage} 
+      className="mt-2 mb-2 px-4 py-2 w-full border border-gray-300 rounded-lg" 
+    />
+    <button 
+      className='px-6 py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white mb-2 text-lg md:text-xl'
+      onClick={handleSubmit}
+    >
+      Update
+    </button>
+  </div>
+</div>
 
-        <input type="file"  onChange={handleImage} className="mt-2 mb-2 px-4 py-2 w-full border border-gray-300 rounded-lg" />
-            
-            <button className='px-6 py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white mb-2 text-xl' onClick={handleSubmit}>Update</button>
-        </div>
-    </div>
   )
 }
 
