@@ -45,10 +45,10 @@ const UpdatePriceModal = ({dates,setOpenModal}) => {
 
   return (
     <div class='fixed top-0 left-0 h-screen w-screen z-50 bg-[rgba(0,0,0,0.7)] flex items-center justify-center'>
-    <div class='w-[90%] max-w-md relative flex flex-col p-4 md:p-6 rounded-xl bg-white shadow-lg'>
+    <div class='w-[90vw] md:w-[45vw] z-100 relative flex flex-col p-4 md:p-6 rounded-xl bg-white shadow-lg'>
         <X class='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={()=>setOpenModal(false)}/>
         <h3 class='text-lg md:text-xl font-bold mb-2 md:mb-4'>Update Price for these dates:</h3>
-        <div class='my-2 flex flex-wrap max-h-[50vh] overflow-y-scroll pr-2 md:pr-4'>
+        <div class='my-2 flex flex-wrap gap-4 max-h-[50vh] overflow-y-scroll pr-2 md:pr-4'>
             {
                 dates?.map((date,index)=>(
                     <div key={index} class='shadow-lg bg-blue-400 text-white px-3 py-2 text-sm md:text-lg'>
