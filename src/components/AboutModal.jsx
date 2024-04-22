@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const AboutModal = ({setAboutModal}) => {
-    const host = 'http://localhost:3001'
+    const host = 'https://lake-paradise-admin.onrender.com'
   const userId = JSON.parse(localStorage.getItem('user'))?._id
   
   const [file, setFile] = useState(null);

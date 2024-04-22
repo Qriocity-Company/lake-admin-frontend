@@ -9,6 +9,7 @@ import AboutModal from '../components/AboutModal';
 import useFetch from '../hooks/useFetch';
 import CollageModal from '../components/CollageModal';
 import ContactModal from '../components/ContactModal';
+import DefaultPriceModal from '../components/DefaultPriceModal';
 const hotelId = import.meta.env.VITE_HOTEL_ID;
 
 const Home = () => {
@@ -30,6 +31,7 @@ const Home = () => {
   const [bookingModal, setBookingModal] = useState(false);
   const [dates, setDates] = useState([]);
   const [defaultPrice, setDefaultPrice] = useState('');
+  const [defaultPriceModal,setDefaultPriceModal] = useState(false);
 
   // Function to change month
   const changeMonth = (amount) => {
@@ -231,7 +233,7 @@ const Home = () => {
       {openAboutModal && <AboutModal setAboutModal={setAboutModal} />}
       {openCollageModal && <CollageModal setCollageModal={setCollageModal} />}
       {openContactModal && <ContactModal setContactModal={setContactModal} />}
-      
+      {defaultPriceModal && <DefaultPriceModal setOpenModal={setDefaultPriceModal}/> }
 
 
 

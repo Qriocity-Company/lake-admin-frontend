@@ -38,16 +38,14 @@ const Navbar = () => {
     <div className="hidden md:flex items-center ml-auto">
       <Link to="/home" className="text-white hover:text-gray-300">Home</Link>
       <Link to="/message" className="text-white hover:text-gray-300 ml-4">Messages</Link>
-      <Link to="/customers" className="text-white hover:text-gray-300 ml-4">View Customers</Link>
-      <Link to="/add-customers" className="text-white hover:text-gray-300 ml-4">Add Customers</Link>
+     
       <button onClick={logout} className="text-white hover:text-gray-300 ml-4 focus:outline-none">Logout</button>
     </div>
   </div>
   <div className={`px-6 py-3 md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
     <Link to="/home" className="block py-2 text-white hover:text-gray-300">Home</Link>
     <Link to="/message" className="block py-2 text-white hover:text-gray-300">Messages</Link>
-    <Link to="/customers" className="block py-2 text-white hover:text-gray-300">View Customers</Link>
-    <Link to="/add-customers" className="block py-2 text-white hover:text-gray-300">Add Customers</Link>
+  
     <button onClick={logout} className="block py-2 text-white hover:text-gray-300 focus:outline-none">Logout</button>
   </div>
 </div>

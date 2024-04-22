@@ -6,9 +6,8 @@ import Login from './pages/Login';
 import Navbar from './components/Navbar';
 
 import Home from './pages/Home'
-import Customers from './pages/Customers'
-import AddCustomers from './pages/AddCustomers';
 import Messages from './pages/Messages';
+
 
 
 function App() {
@@ -29,9 +28,7 @@ function App() {
                 <Navbar/>
                 <Routes>
                   <Route path='/home' element={ <Home/> } />
-                  <Route path='/customers' element={ <Customers/> } />
-                  <Route path='/add-customers' element={ <AddCustomers/> } />
-                  <Route path='/message' element={ <Messages/> } />
+                  <Route path='/messages' element={<Messages/>} />
                 </Routes>
               </>
             }
