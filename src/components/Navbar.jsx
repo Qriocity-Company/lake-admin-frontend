@@ -3,13 +3,17 @@ import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 const Navbar = () => {
 
+  const userId = JSON.parse(localStorage.getItem('user'))?._id
 
   useEffect(()=>{
-    
+    if(!userId){
+      navigate('/')
+    }
   },[])
 
   const authToken = Cookies.get('authToken');
   const navigate = useNavigate()
+
   const logout=()=>{
     localStorage.removeItem('user');
     Cookies.remove('authToken');
@@ -23,8 +27,7 @@ const Navbar = () => {
         </div>
         <div className='flex gap-12'>
             <Link to="/home">Home</Link>
-            <Link to="/customers">View Customers</Link>
-            <Link to="/add-customers">Add Customers</Link>
+            <Link to="/messages">User Messages</Link>
             
             <span className='cursor-pointer' onClick={logout}>Logout</span>
         </div>

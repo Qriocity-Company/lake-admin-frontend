@@ -9,6 +9,7 @@ import AboutModal from '../components/AboutModal';
 import useFetch from '../hooks/useFetch';
 import CollageModal from '../components/CollageModal';
 import ContactModal from '../components/ContactModal';
+import DefaultPriceModal from '../components/DefaultPriceModal';
 const hotelId = import.meta.env.VITE_HOTEL_ID;
 
 const Home = () => {
@@ -30,6 +31,7 @@ const Home = () => {
   const [bookingModal, setBookingModal] = useState(false);
   const [dates, setDates] = useState([]);
   const [defaultPrice, setDefaultPrice] = useState('');
+  const [defaultPriceModal,setDefaultPriceModal] = useState(false);
 
   // Function to change month
   const changeMonth = (amount) => {
@@ -168,13 +170,14 @@ const Home = () => {
           <div className="flex justify-end mb-6 gap-6">
             <button onClick={() => setOpenModal(true)} className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md hover:bg-blue-600 shadow-lg shadow-black">Update Prices</button>
             <button onClick={() => setBookingModal(true)} className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md hover:bg-blue-600 shadow-lg shadow-black">Book Dates</button>
+            <button onClick={() => setDefaultPriceModal(true)} className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md hover:bg-blue-600 shadow-lg shadow-black">Set Default Price</button>
           </div>
         </div>
       </div>
       {openModal && <UpdatePriceModal setOpenModal={setOpenModal} dates={selectedDates}/>}
       {bookingModal && <DateBookingModal setOpenModal={setBookingModal} dates={selectedDates}/>}
 
-      <div className=' relative w-[70vw] h-[50vh] mb-12 flex justify-center items-center '>
+      <div className=' relative w-[70vw] h-[50vh] mt-16 my-12 flex justify-center items-center '>
         <h1 className=' bg-black bg-opacity-20 text-white absolute font-bold font-serif z-50 top-0 left-0 right-0 text-center text-lg'>Hero Image</h1>
         <img src={data.hotel?.heroImage} alt="" className=' w-full h-full rounded-lg' />
         <button  onClick={() => setHeroModal(true) } className="absolute z-50 bg-blue-700 p-3 px-8 font-serif bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
@@ -199,8 +202,8 @@ const Home = () => {
        
       </div>
 
-      <div className=' relative w-[70vw] h-[50vh] mb-12 flex justify-center items-center '>
-      <h1 className=' bg-black bg-opacity-20 text-white absolute font-serif font-bold z-50 top-0 left-0 right-0 text-center text-lg'>Bottom Banner Image</h1>
+      <div className=' relative w-[70vw] h-[50vh] mb-6 flex justify-center items-center '>
+        <h1 className=' bg-black bg-opacity-20 text-white absolute font-serif font-bold z-50 top-0 left-0 right-0 text-center text-lg'>Bottom Banner Image</h1>
         <img src={data.hotel?.bottomBanner} alt="" className=' w-full h-full rounded-lg' />
         <button  onClick={() => setBannerModal(true) } className="absolute z-50 bg-blue-700 p-3 px-8 font-serif bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
         
@@ -233,7 +236,7 @@ const Home = () => {
       {openAboutModal && <AboutModal setAboutModal={setAboutModal} />}
       {openCollageModal && <CollageModal setCollageModal={setCollageModal} />}
       {openContactModal && <ContactModal setContactModal={setContactModal} />}
-      
+      {defaultPriceModal && <DefaultPriceModal setOpenModal={setDefaultPriceModal}/> }
 
 
 
