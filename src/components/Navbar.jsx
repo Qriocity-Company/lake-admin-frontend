@@ -32,12 +32,13 @@ const Navbar = () => {
       onClick={toggleMobileMenu}
     >
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        <path strokeLinecap="round"  strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
     </button>
     <div className="hidden md:flex items-center ml-auto">
       <Link to="/home" className="text-white hover:text-gray-300">Home</Link>
       <Link to="/message" className="text-white hover:text-gray-300 ml-4">Messages</Link>
+      <Link to="/features" className="text-white hover:text-gray-300 ml-4">Update Features</Link>
      
       <button onClick={logout} className="text-white hover:text-gray-300 ml-4 focus:outline-none">Logout</button>
     </div>
@@ -45,6 +46,7 @@ const Navbar = () => {
   <div className={`px-6 py-3 md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
     <Link to="/home" className="block py-2 text-white hover:text-gray-300">Home</Link>
     <Link to="/message" className="block py-2 text-white hover:text-gray-300">Messages</Link>
+    <Link to="/features" className="block py-2 text-white hover:text-gray-300">Update Features</Link>
   
     <button onClick={logout} className="block py-2 text-white hover:text-gray-300 focus:outline-none">Logout</button>
   </div>

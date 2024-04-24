@@ -118,7 +118,7 @@ const Home = () => {
     }
   };
 
-  const userId = JSON.parse(localStorage.getItem('user'))?.id;
+  const userId = JSON.parse(localStorage.getItem('user'))?._id;
   const host = 'https://lake-paradise-admin.onrender.com';
 
   const fetchDates = async () => {
@@ -149,32 +149,32 @@ const Home = () => {
   return (
     <div className='min-h-[90vh] bg-white  relative w-full flex flex-col items-center justify-center'>
      <div className='w-full h-auto mb-12 p-4 md:p-12'>
-  <h2 className='text-xl md:text-2xl font-semibold text-center'>Manage your Calendar</h2>
-  <div className='w-full'>
-    <div className="flex items-center justify-between">
-      <button onClick={() => changeMonth(-1)} className="block md:hidden">&#9664;</button>
-      <span className="text-center">{getMonthYear()}</span>
-      <button onClick={() => changeMonth(1)} className="block md:hidden">&#9654;</button>
-    </div>
-    <div className="mt-4">
-      <div className="grid grid-cols-7 gap-2 text-center">
-        <div className="font-semibold">Sun</div>
-        <div className="font-semibold">Mon</div>
-        <div className="font-semibold">Tue</div>
-        <div className="font-semibold">Wed</div>
-        <div className="font-semibold">Thu</div>
-        <div className="font-semibold">Fri</div>
-        <div className="font-semibold">Sat</div>
-        {renderCalendarDays()}
+      <h2 className='text-xl md:text-2xl font-semibold text-center'>Manage your Calendar</h2>
+      <div className='w-full'>
+        <div className="flex items-center justify-between">
+          <button onClick={() => changeMonth(-1)} className="block">&#9664;</button>
+          <span className="text-center">{getMonthYear()}</span>
+          <button onClick={() => changeMonth(1)} className="block">&#9654;</button>
+        </div>
+        <div className="mt-4">
+          <div className="grid grid-cols-7 gap-2 text-center">
+            <div className="font-semibold">Sun</div>
+            <div className="font-semibold">Mon</div>
+            <div className="font-semibold">Tue</div>
+            <div className="font-semibold">Wed</div>
+            <div className="font-semibold">Thu</div>
+            <div className="font-semibold">Fri</div>
+            <div className="font-semibold">Sat</div>
+            {renderCalendarDays()}
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row justify-center md:justify-end items-center md:mb-6 gap-4 mt-4 md:mt-6">
+          <button onClick={() => setOpenModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Update Prices</button>
+          <button onClick={() => setBookingModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Book Dates</button>
+          <button onClick={() => setDefaultPriceModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Update Default Price</button>
+        </div>
       </div>
     </div>
-    <div className="flex flex-col md:flex-row justify-center md:justify-end items-center md:mb-6 gap-4 mt-4 md:mt-6">
-      <button onClick={() => setOpenModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Update Prices</button>
-      <button onClick={() => setBookingModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Book Dates</button>
-      <button onClick={() => setDefaultPriceModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Update Default Price</button>
-    </div>
-  </div>
-</div>
 
       {openModal && <UpdatePriceModal setOpenModal={setOpenModal} dates={selectedDates}/>}
       {bookingModal && <DateBookingModal setOpenModal={setBookingModal} dates={selectedDates}/>}
