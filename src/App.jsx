@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home'
 import Messages from './pages/Messages';
 import UpdateFeatures from './components/UpdateFeatures';
+import Gallery from './pages/Gallery';
 
 
 
@@ -31,6 +32,7 @@ function App() {
                   <Route path='/home' element={ <Home/> } />
                   <Route path='/message' element={<Messages/>} />
                   <Route path='/features' element={<UpdateFeatures/>} />
+                  <Route path='/gallery' element={<Gallery/>} />
                 </Routes>
               </>
             }

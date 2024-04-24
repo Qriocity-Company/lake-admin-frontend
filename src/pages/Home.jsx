@@ -10,6 +10,7 @@ import useFetch from '../hooks/useFetch';
 import CollageModal from '../components/CollageModal';
 import ContactModal from '../components/ContactModal';
 import DefaultPriceModal from '../components/DefaultPriceModal';
+import Carasoule from '../components/Carasoule';
 const hotelId = import.meta.env.VITE_HOTEL_ID;
 
 const Home = () => {
@@ -191,18 +192,13 @@ const Home = () => {
         <button onClick={() => setAboutModal(true) } className="absolute z-4 bg-blue-700 p-3 px-8 text-lg bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
         
       </div>
-      <div className=' relative md:w-[70vw] w-[90vw] h-[70vh] mb-12 flex flex-wrap justify-center items-center'>
-      {data.hotel?.hotelImages.map((image, index) => (
-          <div key={index} className=' relative w-1/2 h-1/2 p-1'>
-            <img src={image.img} alt={`Hotel Image ${index + 1}`} className=' w-full h-full' />
-            <div className=' text-white absolute text-lg font-bold z-4 top-1 px-1 left-0 right-0 text-center text-lg'>
-            <h1 className='bg-black bg-opacity-20'>{image.title}</h1>
-            </div>
-          </div>
-        ))}
-         <button onClick={() => setCollageModal(true)}className="absolute z-4 bg-blue-600  py-5 px-10 text-lg  hover:bg-blue-700  text-white rounded-full right-30">update</button>
-       
-      </div>
+      
+
+    
+      <Carasoule/>
+    
+
+
 
       <div className=' relative md:w-[70vw] w-[90vw] h-[50vh] mb-12 flex justify-center items-center '>
       <h1 className=' bg-black bg-opacity-20 text-white absolute text-lg font-bold z-4 top-0 left-0 right-0 text-center text-lg'>Bottom Banner Image</h1>
@@ -210,18 +206,18 @@ const Home = () => {
         <button  onClick={() => setBannerModal(true) } className="absolute z-4 bg-blue-700 p-3 px-8 text-lg bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
         
       </div>
-      <div class="relative w-full md:w-[70vw]  h-[50vh] mb-12 flex justify-center items-center">
-  <div class="w-full md:w-1/2 h-full bg-blue-500 flex flex-col justify-center items-center shadow-2xl shadow-black rounded-lg">
-    <p class="text-white text-xl font-bold mb-4">Contact Details</p>
-    <div class="flex flex-col gap-4">
-      <div class="flex gap-2 justify-between items-center">
-        <p class="text-white font-semibold">Contact No.: {data.hotel?.contacts[0]} </p>
+      <div className="relative w-full md:w-[70vw]  h-[50vh] mb-12 flex justify-center items-center">
+  <div className="w-full md:w-1/2 h-full bg-blue-500 flex flex-col justify-center items-center shadow-2xl shadow-black rounded-lg">
+    <p className="text-white text-xl font-bold mb-4">Contact Details</p>
+    <div className="flex flex-col gap-4">
+      <div className="flex gap-2 justify-between items-center">
+        <p className="text-white font-semibold">Contact No.: {data.hotel?.contacts[0]} </p>
       </div>
-      <div class="flex gap-2 justify-between items-center">
-        <p class="text-white font-semibold">Email: {data.hotel?.contacts[1]}</p>
+      <div className="flex gap-2 justify-between items-center">
+        <p className="text-white font-semibold">Email: {data.hotel?.contacts[1]}</p>
       </div>
     </div>
-    <button onClick={() => setContactModal(true)} class="bg-blue-600 border border-solid border-white hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 shadow-md shadow-white">
+    <button onClick={() => setContactModal(true)} className="bg-blue-600 border border-solid border-white hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 shadow-md shadow-white">
       Update
     </button>
   </div>

@@ -63,16 +63,16 @@ const CollageModal = ({ setCollageModal }) => {
   };
 
   return (
-    <div class='fixed top-0 left-0 h-screen w-screen z-50 bg-[rgba(0,0,0,0.7)] flex items-center justify-center'>
-      <div class=' md:w-[43vw] w-[90vw] max-h-[90vh] relative flex flex-col  justify-center items-center  rounded-xl bg-white shadow-lg'>
-      <X class='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={() => setCollageModal(false)} />
-      <h3 class='text-xl font-bold my-4 '>Update Your Gallery : </h3>
+    <div className='fixed top-0 left-0 h-screen w-screen z-50 bg-[rgba(0,0,0,0.7)] flex items-center justify-center'>
+      <div className=' md:w-[43vw] w-[90vw] max-h-[90vh] relative flex flex-col  justify-center items-center  rounded-xl bg-white shadow-lg'>
+      <X className='h-6 w-6 absolute top-4 right-4 cursor-pointer' onClick={() => setCollageModal(false)} />
+      <h3 className='text-xl font-bold my-4 '>Update Your Gallery : </h3>
       <div className='max-h-[70vh] w-[90%] overflow-y-scroll pr-4 my-4'>
       {files.map((file, index) => (
         <div key={index} class="flex flex-col items-center justify-center ">
           <img
             src={URL.createObjectURL(file)}
-            class="mt-4 mb-2 rounded-lg w-full "
+            className="mt-4 mb-2 rounded-lg w-full "
             alt="Uploaded Image"
           />
           <input
@@ -80,15 +80,15 @@ const CollageModal = ({ setCollageModal }) => {
             placeholder="Enter Title"
             value={titles[index] || ""}
             onChange={(e) => handleTitleChange(index, e.target.value)}
-            class="mt-2 mb-1 px-4 py-2 w-full border border-gray-300 rounded-lg"
+            className="mt-2 mb-1 px-4 py-2 w-full border border-gray-300 rounded-lg"
           />
         </div>
       ))}
       </div>
       <div>
-        <input type="file" multiple onChange={handleImage} class="mt-2 mb-2 px-4 py-2 w-full border border-gray-300 rounded-lg" />
+        <input type="file" multiple onChange={handleImage} className="mt-2 mb-2 px-4 py-2 w-full border border-gray-300 rounded-lg" />
       </div>
-      <button class='px-6 py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white mb-2 text-xl' onClick={handleSubmit}>Update</button>
+      <button className='px-6 py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white mb-2 text-xl' onClick={handleSubmit}>Update</button>
     </div>
   </div>
   

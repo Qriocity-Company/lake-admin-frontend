@@ -39,6 +39,7 @@ const Navbar = () => {
       <Link to="/home" className="text-white hover:text-gray-300">Home</Link>
       <Link to="/message" className="text-white hover:text-gray-300 ml-4">Messages</Link>
       <Link to="/features" className="text-white hover:text-gray-300 ml-4">Update Features</Link>
+      <Link to="/gallery" className="text-white hover:text-gray-300 ml-4">Gallery</Link>
      
       <button onClick={logout} className="text-white hover:text-gray-300 ml-4 focus:outline-none">Logout</button>
     </div>
@@ -47,6 +48,7 @@ const Navbar = () => {
     <Link to="/home" className="block py-2 text-white hover:text-gray-300">Home</Link>
     <Link to="/message" className="block py-2 text-white hover:text-gray-300">Messages</Link>
     <Link to="/features" className="block py-2 text-white hover:text-gray-300">Update Features</Link>
+    <Link to="/gallery" className="text-white hover:text-gray-300 ml-4">Gallery</Link>
   
     <button onClick={logout} className="block py-2 text-white hover:text-gray-300 focus:outline-none">Logout</button>
   </div>
