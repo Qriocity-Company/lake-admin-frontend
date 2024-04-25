@@ -147,6 +147,43 @@ const Home = () => {
     fetchDefaultPrice();
   }, []);
 
+  const selectWeekdays = () => {
+    const days = [];
+    const totalDays = getDaysInMonth(date.getMonth(), date.getFullYear());
+    const firstDay = getFirstDayOfMonth();
+
+    for (let i = 1; i <= totalDays; i++) {
+      const currentDate = new Date(date.getFullYear(), date.getMonth(), i);
+      const dayOfWeek = currentDate.getDay();
+
+      // 0 is Sunday, 1 is Monday, ..., 6 is Saturday
+      if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+        days.push(currentDate);
+      }
+    }
+
+    setSelectedDates(days);
+  };
+
+  const selectWeekends = () => {
+    const days = [];
+    const totalDays = getDaysInMonth(date.getMonth(), date.getFullYear());
+    const firstDay = getFirstDayOfMonth();
+
+    for (let i = 1; i <= totalDays; i++) {
+      const currentDate = new Date(date.getFullYear(), date.getMonth(), i);
+      const dayOfWeek = currentDate.getDay();
+
+      // 0 is Sunday, 1 is Monday, ..., 6 is Saturday
+      if (dayOfWeek === 0 || dayOfWeek === 6) {
+        days.push(currentDate);
+      }
+    }
+
+    setSelectedDates(days);
+  };
+
+
   return (
     <div className='min-h-[90vh] bg-white  relative w-full flex flex-col items-center justify-center'>
      <div className='w-full h-auto mb-12 p-4 md:p-12'>
@@ -169,10 +206,17 @@ const Home = () => {
             {renderCalendarDays()}
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-center md:justify-end items-center md:mb-6 gap-4 mt-4 md:mt-6">
-          <button onClick={() => setOpenModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Update Prices</button>
-          <button onClick={() => setBookingModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Book Dates</button>
-          <button onClick={() => setDefaultPriceModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Update Default Price</button>
+        <div className='w-full flex justify-between items-center'>
+          <div className="flex flex-col md:flex-row justify-center md:justify-end items-center md:mb-6 gap-4 mt-4 md:mt-6">
+            <button onClick={() => setOpenModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Update Prices</button>
+            <button onClick={() => setBookingModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Book Dates</button>
+            <button onClick={() => setDefaultPriceModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Update Default Price</button>
+          </div>
+          <div className='flex flex-col md:flex-row justify-center md:justify-end items-center md:mb-6 gap-4 mt-4 md:mt-6'>
+            <button onClick={() => selectWeekends()} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Select Weekends</button>
+            <button onClick={() => selectWeekdays()} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-lg md:shadow-md">Select Weekdays</button>
+          </div>
+
         </div>
       </div>
     </div>
@@ -181,28 +225,23 @@ const Home = () => {
       {bookingModal && <DateBookingModal setOpenModal={setBookingModal} dates={selectedDates}/>}
 
       <div className=' relative md:w-[70vw] w-[90vw] h-[50vh] mb-12 flex justify-center items-center '>
-        <h1 className=' bg-black bg-opacity-20 text-white absolute font-bold text-lg z-4 top-0 left-0 right-0 text-center text-lg'>Hero Image</h1>
+        <h1 className=' bg-black bg-opacity-20 text-white absolute font-bold text-lg z-4 top-0 left-0 right-0 text-center '>Hero Image</h1>
         <img src={data.hotel?.heroImage} alt="" className=' w-full h-full rounded-lg' />
         <button  onClick={() => setHeroModal(true) } className="absolute z-4 bg-blue-700 p-3 px-8 text-lg bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
         
       </div>
-      <div className=' relative md:w-[70vw] w-[90vw] h-[50vh] mb-12 flex justify-center items-center '>
-      <h1 className=' bg-black bg-opacity-20 text-white absolute text-lg font-bold z-4 top-0 left-0 right-0 text-center text-lg'>About Image</h1>
-        <img src={data.hotel?.aboutImage} alt="" className=' w-full h-full rounded-lg' />
+
+      <div className=' relative md:w-[70vw] w-[90vw] h-[50vh] mb-12 flex justify-center items-center rounded-lg'>
+        <h1 className=' bg-black bg-opacity-20 text-white absolute font-bold z-4 top-0 left-0 right-0 text-center text-lg'>About Image</h1>
+        <img src={data.hotel?.aboutImage} alt="" className='object-cover w-full h-full rounded-xl' />
         <button onClick={() => setAboutModal(true) } className="absolute z-4 bg-blue-700 p-3 px-8 text-lg bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
-        
       </div>
       
-
-    
       <Carasoule/>
     
-
-
-
       <div className=' relative md:w-[70vw] w-[90vw] h-[50vh] mb-12 flex justify-center items-center '>
-      <h1 className=' bg-black bg-opacity-20 text-white absolute text-lg font-bold z-4 top-0 left-0 right-0 text-center text-lg'>Bottom Banner Image</h1>
-        <img src={data.hotel?.bottomBanner} alt="" className=' w-full h-full rounded-lg' />
+      <h1 className=' bg-black bg-opacity-20 text-white absolute text-lg font-bold z-4 top-0 left-0 right-0 text-center'>Bottom Banner Image</h1>
+        <img src={data.hotel?.bottomBanner} alt="" className='object-cover w-full h-full rounded-lg' />
         <button  onClick={() => setBannerModal(true) } className="absolute z-4 bg-blue-700 p-3 px-8 text-lg bg-opacity-80 hover:bg-blue-700  text-white rounded-full right-30">update</button>
         
       </div>

@@ -8,8 +8,8 @@ const EditFeatureModal = ({ feature, setOpenModal }) => {
   const navigate = useNavigate();
   const userId = JSON.parse(localStorage.getItem('user'))?._id;
   const hotelId = "66221c2cce3f47d7d06cd26a";
-  //   const host = 'https://lake-paradise-admin.onrender.com';
-  const host = 'http://localhost:3001';
+    const host = 'https://lake-paradise-admin.onrender.com';
+  // const host = 'http://localhost:3001';
 
   const [title, setTitle] = useState('');
   const [contentInputs, setContentInputs] = useState([]);

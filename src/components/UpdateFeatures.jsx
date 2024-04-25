@@ -7,8 +7,8 @@ const UpdateFeatures = () => {
   const hotelId = "66221c2cce3f47d7d06cd26a";
   
   const userId = JSON.parse(localStorage.getItem('user'))?._id;
-//   const host = 'https://lake-paradise-admin.onrender.com';
-  const host = 'http://localhost:3001';
+  const host = 'https://lake-paradise-admin.onrender.com';
+  // const host = 'http://localhost:3001';
 
   const [features,setFeatures] = useState([]);
   const [selectedFeature,setSelectedFeature] = useState(null);

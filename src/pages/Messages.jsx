@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Calendar, MessageCircle, Phone, Trash, User } from 'lucide-react';
+import { Calendar, MessageCircle, Paperclip, Phone, Trash, User } from 'lucide-react';
 
 const Messages = () => {
   const host ='https://lake-paradise-admin.onrender.com';
@@ -62,6 +62,10 @@ const Messages = () => {
                 <div className='mt-3 flex items-center gap-2'>
                   <Phone className='text-gray-500' />
                   <span>{message.phoneNumber}</span>
+                </div>
+                <div className='mt-3 flex items-center gap-2'>
+                  <Paperclip className='text-gray-500' />
+                  <span>{message.email}</span>
                 </div>
                 
                 <div className='mt-3 flex items-center gap-2'>
