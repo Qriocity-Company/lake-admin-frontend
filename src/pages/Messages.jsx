@@ -43,7 +43,7 @@ const Messages = () => {
           {messages?.map((message, index) => (
             <div key={index} className='bg-blue-100 p-4 my-4 rounded-md shadow flex flex-col gap-2'>
               <div className='flex items-center justify-between mb-2'>
-                <h3 className='text-xl font-semibold'>Message {index + 1}</h3>
+                <h3 className='text-xl font-semibold'>Message {index + 1} from {message.name}</h3>
                 <Trash className=' cursor-pointer text-red-500 text-lg' onClick={()=>deleteMessage(message._id)} />
               </div>
               <div className='flex flex-col gap-1 '>
