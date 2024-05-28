@@ -17,7 +17,6 @@ const Home = () => {
   
   
   const { data, loading, error } = useFetch(`https://lake-paradise-admin.onrender.com/hotel/get-hotel`);
-  console.log(data.hotel);
   
   // Initial date state (current month and year)
   const [date, setDate] = useState(new Date());
@@ -70,6 +69,12 @@ const Home = () => {
     return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
   };
 
+  function isBeforeToday(date) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to local midnight to avoid timezone issues
+    return date < today;
+  }
+
   // Function to render calendar days
   const renderCalendarDays = () => {
     const firstDay = getFirstDayOfMonth();
@@ -84,26 +89,34 @@ const Home = () => {
     // Add numbered days for the month
     for (let i = 1; i <= totalDays; i++) {
       const currentDate = new Date(date.getFullYear(), date.getMonth(), i);
-      const isSelected = selectedDates.some(selectedDate => selectedDate.getTime() === currentDate.getTime());
-      const bookedDate = dates.find(d => new Date(d.date).getTime() === currentDate.getTime());
+      const normalizedCurrentDate = new Date(currentDate.setHours(0, 0, 0, 0));
+      const isSelected = selectedDates.some(selectedDate => {
+        const normalizedSelectedDate = new Date(selectedDate.setHours(0, 0, 0, 0));
+        return normalizedSelectedDate.getTime() === normalizedCurrentDate.getTime();
+      });
+      const bookedDate = dates.find(d => {
+        const normalizedBookedDate = new Date(new Date(d.date).setHours(0, 0, 0, 0));
+        return normalizedBookedDate.getTime() === normalizedCurrentDate.getTime();
+      });
       const isBooked = bookedDate ? bookedDate.booked : false;
       const price = bookedDate ? bookedDate.price : defaultPrice;
 
+      
+
       days.push(
         <div
-            onClick={() => manageDate(currentDate)}
+            onClick={() => manageDate(normalizedCurrentDate)}
             className={`bg-blue-200 cursor-pointer flex flex-col items-center gap-2 md:gap-4 py-4 px-2 md:px-4 calendar-day ${isSelected ? 'bg-teal-400' : ''} ${isBooked ? 'bg-zinc-500' : ''}`}
             key={`day-${i}`}
           >
             <p className={`text-center ${isBooked ? 'line-through' : ''}`}>{i}</p>
             <p className='bg-blue-500 rounded-lg px-2 py-1 md:px-3 md:py-1 text-white text-xs md:text-sm'> $ {price}</p>
           </div>
-
       );
     }
 
     return days;
-  };
+};
 
   // Function to manage date selection
   const manageDate = (selectedDate) => {
@@ -127,6 +140,7 @@ const Home = () => {
       const response = await fetch(`${host}/date/get-all-dates`);
       const data = await response.json();
       setDates(data.dates);
+      console.log(data);
     } catch (error) {
       console.error('Error fetching dates:', error);
     }
@@ -142,9 +156,11 @@ const Home = () => {
     }
   };
 
+  useEffect(()=>{
+    fetchDefaultPrice();
+  },[])
   useEffect(() => {
     fetchDates();
-    fetchDefaultPrice();
   }, []);
 
   const selectWeekdays = () => {
